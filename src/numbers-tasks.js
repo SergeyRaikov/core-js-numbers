@@ -49,8 +49,9 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  // throw new Error('Not implemented');
+  return (value1 + value2) / 2;
 }
 
 /**
@@ -379,9 +380,7 @@ function toFixed(number, fractionDigits) {
  * 12.345, 4   => '12.35'
  */
 function toPrecision(number, precision) {
-  const numberOfDigits = number.toString().split('').length;
-  const res = Math.abs(numberOfDigits - precision);
-  return number.toFixed(res);
+  return number.toPrecision(precision);
 }
 
 /**
@@ -443,7 +442,7 @@ function isInteger(number) {
  * 'abcdefgh'      => NaN
  */
 function getFloatOnString(str) {
-  return parseFloat(str);
+  return Number.parseFloat(str);
 }
 
 /**
@@ -461,7 +460,7 @@ function getFloatOnString(str) {
  * '10', 8              => 8
  */
 function getIntegerOnString(str, base) {
-  return base ? parseInt(str, base) : NaN;
+  return Number.parseInt(str, base);
 }
 
 /**
@@ -476,7 +475,7 @@ function getIntegerOnString(str, base) {
  * 2 ** 53  => false
  */
 function isSafeInteger(number) {
-  return Number.isSafeInteger(number) && Number.isFinite(number);
+  return Number.isSafeInteger(number);
 }
 
 /**
